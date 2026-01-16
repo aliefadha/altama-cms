@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Image from '@tiptap/extension-image'
@@ -23,7 +24,8 @@ import {
 } from 'lucide-react'
 import { Button } from './button'
 import { Separator } from './separator'
-import { cn } from '@/lib/utils'
+import { ImagePickerDialog } from './image-picker-dialog'
+import { cn, getImageUrl } from '@/lib/utils'
 
 interface RichTextEditorProps {
   value?: string
@@ -47,7 +49,11 @@ export function RichTextEditor({
   const editor = useEditor({
     extensions: [
       StarterKit,
-      Image,
+      Image.configure({
+        HTMLAttributes: {
+          style: 'width: 500px;',
+        },
+      }),
       Link.configure({ openOnClick: false }),
       Underline,
     ],
@@ -67,6 +73,8 @@ export function RichTextEditor({
       },
     },
   })
+
+  const [imagePickerOpen, setImagePickerOpen] = useState(false)
 
   return (
     <div className={cn('border rounded-md', className)}>
@@ -251,12 +259,7 @@ export function RichTextEditor({
           type="button"
           variant="ghost"
           size="sm"
-          onClick={() => {
-            const url = window.prompt('Enter image URL:')
-            if (url) {
-              editor.chain().focus().setImage({ src: url }).run()
-            }
-          }}
+          onClick={() => setImagePickerOpen(true)}
         >
           <ImageIcon className="h-4 w-4" />
         </Button>
@@ -272,6 +275,19 @@ export function RichTextEditor({
       </div>
 
       <EditorContent editor={editor} />
+
+      <ImagePickerDialog
+        isOpen={imagePickerOpen}
+        onClose={() => setImagePickerOpen(false)}
+        onInsert={(url) =>
+          editor
+            .chain()
+            .focus()
+            .setImage({ src: getImageUrl(url) })
+            .run()
+        }
+        currentContent={editor.getHTML()}
+      />
     </div>
   )
 }

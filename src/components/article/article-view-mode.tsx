@@ -41,6 +41,11 @@ export function ArticleViewMode({ article }: ArticleViewModeProps) {
       )}
 
       <div>
+        <p className="text-sm text-muted-foreground mb-1">Excerpt</p>
+        <p className="text-sm">{article.excerpt}</p>
+      </div>
+
+      <div>
         <p className="text-sm text-muted-foreground mb-1">Primary Image</p>
         {article.primaryImage ? (
           <img
@@ -53,11 +58,6 @@ export function ArticleViewMode({ article }: ArticleViewModeProps) {
             <FileText className="h-12 w-12 text-muted-foreground" />
           </div>
         )}
-      </div>
-
-      <div>
-        <p className="text-sm text-muted-foreground mb-1">Excerpt</p>
-        <p className="text-sm">{article.excerpt}</p>
       </div>
 
       <ArticleContent contentHtml={article.contentHtml} />

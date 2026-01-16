@@ -90,6 +90,18 @@ export function ArticleEditMode({
           />
         </div>
 
+         <div className="space-y-2">
+          <Label htmlFor="edit-excerpt">Excerpt *</Label>
+          <textarea
+            id="edit-excerpt"
+            name="excerpt"
+            defaultValue={article.excerpt}
+            rows={3}
+            required
+            className="min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          />
+        </div>
+
         <div className="space-y-2">
           <Label htmlFor="edit-file">Primary Image</Label>
           <Input id="edit-file" name="file" type="file" accept="image/*" />
@@ -105,18 +117,6 @@ export function ArticleEditMode({
               />
             </div>
           )}
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="edit-excerpt">Excerpt *</Label>
-          <textarea
-            id="edit-excerpt"
-            name="excerpt"
-            defaultValue={article.excerpt}
-            rows={3}
-            required
-            className="min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-          />
         </div>
 
         <div className="space-y-2">
