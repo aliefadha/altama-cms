@@ -4,7 +4,7 @@ import { Link as LinkIcon, Upload, X } from 'lucide-react'
 import { toast } from 'sonner'
 import type { GalleryImage } from '@/lib/api/gallery'
 import { galleryApi } from '@/lib/api/gallery'
-import { getImageUrl } from '@/lib/api-client'
+import { getImageUrl } from '@/lib/utils'
 import {
   Dialog,
   DialogContent,

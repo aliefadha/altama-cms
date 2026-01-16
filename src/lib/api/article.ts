@@ -9,14 +9,19 @@ export interface Article {
   primaryImage: string | null
   publishedAt: string | null
   categoryId: string | null
-  seoTitle?: string
-  seoDescription?: string
-  seoKeywords?: string
+  category?: {
+    id: string
+    name: string
+  } | null
+  seoTitle?: string | null
+  seoDescription?: string | null
+  seoKeywords?: string | null
   metaTags?: {
     title?: string
     keywords?: string
     description?: string
-  }
+  } | null
+  author?: string | null
 }
 
 export async function getArticles() {

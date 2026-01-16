@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Instagram, Trash2 } from 'lucide-react'
 import type { GalleryImage } from '@/lib/api/gallery'
-import { getImageUrl } from '@/lib/api-client'
+import { getImageUrl } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'

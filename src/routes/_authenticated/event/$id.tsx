@@ -1,7 +1,7 @@
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { ArrowLeft, Save, Trash2 } from 'lucide-react'
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { useState, useEffect } from 'react'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -18,7 +18,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { eventApi } from '@/lib/api/event'
-import { getImageUrl } from '@/lib/api-client'
+import { getImageUrl } from '@/lib/utils'
 
 export const Route = createFileRoute('/_authenticated/event/$id')({
   component: RouteComponent,

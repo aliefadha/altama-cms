@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Badge } from '@/components/ui/badge'
 import { articleApi } from '@/lib/api/article'
-import { getImageUrl } from '@/lib/api-client'
+import { getImageUrl } from '@/lib/utils'
 
 export const Route = createFileRoute('/_authenticated/article/')({
   component: RouteComponent,
